@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://h3gbtoma0dws"]
+
+[ext_resource type="Script" path="res://Entities/Truffle/truffle.gd" id="1_134vo"]
+[ext_resource type="Texture2D" uid="uid://c7w1i2l824a0d" path="res://Entities/Truffle/truffle.png" id="2_m76jv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ifugp"]
+radius = 45.0
+
+[node name="Truffle" type="Area2D"]
+script = ExtResource("1_134vo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ifugp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m76jv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

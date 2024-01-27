@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4m8ivv2vgopo"]
+
+[ext_resource type="PackedScene" uid="uid://ba0h0qb7udjxi" path="res://Entities/Pig/pig.tscn" id="1_t7twn"]
+[ext_resource type="PackedScene" uid="uid://c02q0r52pahfq" path="res://Entities/Player/player.tscn" id="2_kyfpv"]
+[ext_resource type="PackedScene" uid="uid://h3gbtoma0dws" path="res://Entities/Truffle/truffle.tscn" id="3_ryv3c"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vrnul"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_icjm6"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rd02v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vhoh0"]
+normal = Vector2(-1, 0)
+
+[node name="LevelOne" type="Node2D"]
+
+[node name="Pig" parent="." instance=ExtResource("1_t7twn")]
+position = Vector2(617, 332)
+
+[node name="Truffle" parent="." instance=ExtResource("3_ryv3c")]
+position = Vector2(355, 333)
+
+[node name="Player" parent="." instance=ExtResource("2_kyfpv")]
+position = Vector2(501, 148)
+
+[node name="tempwall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tempwall"]
+shape = SubResource("WorldBoundaryShape2D_vrnul")
+
+[node name="tempwall2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tempwall2"]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_icjm6")
+
+[node name="tempwall3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tempwall3"]
+position = Vector2(1152, 648)
+shape = SubResource("WorldBoundaryShape2D_rd02v")
+
+[node name="tempwall4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tempwall4"]
+position = Vector2(1152, 0)
+shape = SubResource("WorldBoundaryShape2D_vhoh0")
