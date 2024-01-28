@@ -7,5 +7,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	text = "[b]Flags Left:[/b] %s of %s" % [Globals.FLAG_COUNT, Globals.FLAG_MAX]
+func _process(_delta):
+	text = "[b]Flags Left:[/b] %s of %s" % [
+		Globals.FLAG_MAX - Globals.FLAG_COUNT, 
+		Globals.FLAG_MAX
+	]

@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Swinemeeper"
-run/main_scene="res://Levels/LevelOne/level_one.tscn"
+run/main_scene="res://Levels/MainMenu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Entities/Pig/pig.png"
 
 [autoload]
 
@@ -21,15 +21,14 @@ Globals="*res://Globals/globals.gd"
 
 [display]
 
-window/stretch/scale_mode="integer"
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
 folder_colors={
 "res://Entities/": "blue",
 "res://Globals/": "purple",
-"res://Levels/": "red",
-"res://Menus/": "green"
+"res://Levels/": "red"
 }
 
 [input]

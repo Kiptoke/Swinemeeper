@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://cud0p0nwk4gvo"]
+
+[ext_resource type="Script" path="res://Levels/MainMenu/main_menu.gd" id="1_4gbte"]
+[ext_resource type="Texture2D" uid="uid://bd3ybwp6deqmb" path="res://Levels/MainMenu/title.png" id="1_rr26k"]
+[ext_resource type="Texture2D" uid="uid://mrbq08qw5gml" path="res://Levels/LevelOne/pen.png" id="2_ee0sc"]
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4gbte")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_ee0sc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 80.0
+offset_right = 896.0
+offset_bottom = 208.0
+texture = ExtResource("1_rr26k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 240.0
+offset_right = 896.0
+offset_bottom = 272.0
+bbcode_enabled = true
+text = "[wave amp=20.0 freq=5.0 connected=1][center][font_size=20]An \"\"\"explosively fun\"\"\" new game by Andrew Zhou[/font_size][/center][/wave]"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 312.0
+offset_right = 960.0
+offset_bottom = 480.0
+bbcode_enabled = true
+text = "[center][font_size=20]Follow the [color=pink]pig crowds[/color] to find the [color=brown]truffles[/color]!
+
+[color=red]Click[/color] and use your [color=red]flags[/color] to collect the truffles!
+
+Be aware - too many pigs on a truffle for too long causes it to [rainbow freq=0.3 sat=0.7 val=0.8]explode[/rainbow]![/font_size][/center]"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 512.0
+offset_right = 704.0
+offset_bottom = 552.0
+text = "Let's go!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

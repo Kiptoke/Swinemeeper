@@ -7,7 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var mouse = get_viewport().get_mouse_position()
 	set_position(mouse)
 
@@ -17,3 +17,4 @@ func _input(event):
 		flag.position = global_position
 		get_parent().add_child(flag)
 		Globals.FLAG_COUNT += 1
+		$AudioStreamPlayer.play()

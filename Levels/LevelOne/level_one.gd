@@ -21,6 +21,7 @@ func resetGame():
 	Globals.TRUFFLE_COUNT = 0
 	Globals.FLAG_COUNT = 0
 	Globals.PIG_COUNT = pigNum
+	Globals.GAME_COMPLETE = false
 	
 func pigSpawn():
 	for n in pigNum:
@@ -50,7 +51,9 @@ func _on_truffle_timer_timeout():
 
 # End the game after 2 minutes (120 seconds)
 func _on_game_timer_timeout():
+	Globals.GAME_COMPLETE = true
 	get_tree().paused = true
 
 func _on_button_pressed():
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://Levels/MainMenu/main_menu.tscn")
+	#self.queue_free()

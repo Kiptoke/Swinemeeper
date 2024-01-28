@@ -1,5 +1,7 @@
 extends Node
 
+var GAME_COMPLETE = false
+
 # Truffles successfully flagged
 var TRUFFLE_COUNT = 0
 

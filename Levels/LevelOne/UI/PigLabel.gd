@@ -6,5 +6,5 @@ func _ready():
 	total = get_parent().get_parent().pigNum
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	text = "[b]Pigs Left:[/b] %s of %s" % [Globals.PIG_COUNT,total]

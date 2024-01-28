@@ -1,8 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://5533enxk4ryb"]
+[gd_scene load_steps=25 format=3 uid="uid://5533enxk4ryb"]
 
 [ext_resource type="Texture2D" uid="uid://csey3jpc5nnyk" path="res://Entities/Explosion/expSprites.png" id="1_3ne2t"]
 [ext_resource type="Texture2D" uid="uid://42tpmo3oy3e0" path="res://Entities/Pig/pig.png" id="1_s7msu"]
 [ext_resource type="Script" path="res://Entities/Explosion/explosion.gd" id="1_vbrhp"]
+[ext_resource type="AudioStream" uid="uid://36dat7hg7ppw" path="res://Entities/Explosion/boom.ogg" id="4_qp3jn"]
+[ext_resource type="AudioStream" uid="uid://ccldvwj2tchpo" path="res://Entities/Explosion/pigAudio/squeal1.ogg" id="5_1i058"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v2j4m"]
 particle_flag_rotate_y = true
@@ -171,5 +173,11 @@ sprite_frames = SubResource("SpriteFrames_15tgm")
 animation = &"explosion"
 frame = 18
 frame_progress = 1.0
+
+[node name="ExplosionAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qp3jn")
+
+[node name="PigAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1i058")
 
 [connection signal="finished" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]
