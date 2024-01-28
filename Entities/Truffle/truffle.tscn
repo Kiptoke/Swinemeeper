@@ -1,18 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://h3gbtoma0dws"]
+[gd_scene load_steps=6 format=3 uid="uid://h3gbtoma0dws"]
 
 [ext_resource type="Script" path="res://Entities/Truffle/truffle.gd" id="1_134vo"]
 [ext_resource type="Texture2D" uid="uid://c7w1i2l824a0d" path="res://Entities/Truffle/truffle.png" id="2_m76jv"]
+[ext_resource type="PackedScene" uid="uid://5533enxk4ryb" path="res://Entities/Explosion/explosion.tscn" id="3_i8qkb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ifugp"]
-radius = 45.0
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2igb"]
+radius = 64.0
 
 [node name="Truffle" type="Area2D"]
 script = ExtResource("1_134vo")
+explosionScene = ExtResource("3_i8qkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ifugp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.90735e-06)
+scale = Vector2(0.555556, 0.555556)
 texture = ExtResource("2_m76jv")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="ExplosionRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRadius"]
+shape = SubResource("CircleShape2D_g2igb")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

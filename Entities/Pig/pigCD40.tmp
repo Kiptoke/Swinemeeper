@@ -3,19 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://42tpmo3oy3e0" path="res://Entities/Pig/pig.png" id="1_1yfrh"]
 [ext_resource type="Script" path="res://Entities/Pig/pig.gd" id="1_ihhgd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hjekr"]
-radius = 64.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh0nq"]
+size = Vector2(80, 72)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_whp1g"]
-radius = 8.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_hjekr"]
+radius = 96.0
 
 [node name="Pig" type="CharacterBody2D"]
 script = ExtResource("1_ihhgd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.38419e-06, 2.38419e-06)
-scale = Vector2(0.64, 0.64)
+position = Vector2(-4.76837e-07, -4.76837e-07)
+scale = Vector2(0.96, 0.96)
 texture = ExtResource("1_1yfrh")
+
+[node name="PigCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_yh0nq")
 
 [node name="PigSenses" type="Area2D" parent="."]
 
@@ -26,9 +30,5 @@ shape = SubResource("CircleShape2D_hjekr")
 wait_time = 2.0
 autostart = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_whp1g")
-
 [connection signal="area_entered" from="PigSenses" to="." method="_on_pig_senses_area_entered"]
-[connection signal="area_exited" from="PigSenses" to="." method="_on_pig_senses_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
